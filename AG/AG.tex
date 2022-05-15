@@ -1,0 +1,54 @@
+\documentclass{amsart}
+\usepackage{tikz-cd} 
+\usepackage{xy}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage[linktocpage=true,hyperfootnotes=true]{hyperref}
+\usepackage{amsmath,amssymb,amsthm,amsfonts,amsrefs}
+\usepackage{newclude}
+\newtheorem{theorem}{Theorem}
+\newtheorem{cor}[theorem]{Corollary}
+\newtheorem{lm}[theorem]{Lemma}
+\newtheorem{prop}[theorem]{Proposition}
+\theoremstyle{definition}
+\newtheorem{defn}[theorem]{Definition}
+\newtheorem{exa}[theorem]{Example}
+\newtheorem{exe}{Exercise}[subsection]
+\theoremstyle{remark}\newtheorem{rmk}[theorem]{Remark}
+\usepackage{latexsym}
+\usepackage{CJK}
+\usepackage{indentfirst}
+\usepackage{mathrsfs}
+\usepackage{geometry}
+\usepackage{hyperref}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+\title{Solutions of Exercises for Hartshorne's \emph{Algebraic Geometry}}
+\date{}
+\author{Yuxing Huang}
+\author{Yilong Jin}
+\author{Chen Liang}
+\author{Xingjian Wu}
+\author{Sihao Yang}
+\author{Yuenian Zhou}
+\begin{document}
+	\maketitle
+	\tableofcontents
+	\section{Varieties}
+	Omitted.
+	\section{Schemes}
+	\include*{Chapter2/2.1/Sheaves}
+	\include*{Chapter2/2.2/Schemes}
+	\include*{Chapter2/2.3/FirstPropertiesOfSchemes}
+	
+	\begin{bibdiv}
+		\begin{biblist}*{prefix={EGA}}
+			\bibselect*{bib/EGA}
+		\end{biblist}
+		\begin{biblist}*{labels={alphabetic}}
+			\bibselect{bib/the}
+		\end{biblist}
+        \begin{biblist}*{labels={shortalphabetic}}
+        	\bibselect{bib/the2}
+        \end{biblist}
+	\end{bibdiv}
+\end{document}

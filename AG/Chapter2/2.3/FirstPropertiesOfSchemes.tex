@@ -1,0 +1,558 @@
+\subsection{First Properties of Schemes}
+
+\begin{exe}
+	\label{2.3.1}
+	Show that a morphism $f: X\rightarrow Y $ is locally of finite type if and only if for every open affine
+	subset $V=\mathrm{Spec}\,B$ of $Y$, $f^{-1}(V)$ can be covered by open affine subset $U_j=\mathrm{Spec}\,A_j$, where each $A_j$ is a
+	finitely generated $B$-algebra.
+\end{exe}
+
+\begin{proof}
+	Necessity: Assume that $Y=\bigcup_i V_i$ with $V_i= \mathrm{Spec}\,B_i$, and pick an open cover $\{W_{ik}\}$ of $ V\cap V_i$ such that $W_{ik}$ are affine in both $V$ and $V_i$. Then $W_{ik}=\mathrm{Spec}\,B_{f_{ik}}=\mathrm{Spec}\,(B_{i})_{g_k}$, so $B_{f_{ik}}\simeq (B_{i})_{g_k}$. Since $f^{-1}(V_i)=\bigcup_j \mathrm{Spec}\,A_{ij}$, $A_{ij}$ is a finitely generated $B$-algebra, and
+	$f_{ij}:\mathrm{Spec}\,A_{ij}\rightarrow \mathrm{Spec}\,B_i$ induces $\varphi : B_i\rightarrow A_{ij} $, we have that $(A_{ij})_{\varphi(g_k)}$ is
+	a finitely generated $(B_{i})_{g_k}$-algebra. Therefore, $(A_{ij})_{\varphi(g_k)}$ is a finitely generated $B_{f_{ik}}$-algebra, and thus a finitely generated $B$-algebra. Notice that $\mathrm{Spec}\,(A_{ij})_{\varphi(g_k)}=D(\varphi _{ij}(g_k))=f_{ij}^{-1}(D(g_k))$, so 
+	$f^{-1}(V)=\bigcup_{i,j,k} \mathrm{Spec}\,(A_{ij})_{\varphi(g_k)}$.
+	
+	Sufficiency is trivial.
+\end{proof}
+
+\begin{exe}
+	\label{2.3.2}
+	A morphism $f: X \rightarrow Y$ is quasi-compact if there is a cover of Y by open affines $V_i$ such that
+	$f^{-1}(V_i)$ is quasi-compact for each $i$. Show that $f$ is quasi-compact if and only if for every open affine subset $V\subseteq Y$,
+	$f^{-1}(V)$ is quasi-compact.
+\end{exe}
+
+\begin{proof}
+	Necessity:
+	\begin{lm}
+		\label{l2.3.1}
+		Assume that $V=\mathrm{Spec}\, B$ is an affine open subset of $Y$, and that $f^{-1}(V)$ is quasi-compact, then $f^{-1}(D_V(g))$ is quasi-compact for every $g\in B$.
+	\end{lm}
+	\begin{proof}[Proof of Lemma \ref*{l2.3.1}]
+		Pick an affine open cover of $f^{-1}(V)$, we can assume that $f^{-1}(V)=\bigcup^n_{i=1}V_i$ with $V_i=\mathrm{Spec}\,A_i$. Then $f_i=f|_{V_i}: \mathrm{Spec}\,A_i \rightarrow \mathrm{Spec}\,B$
+		induces $\varphi: B \rightarrow A_i$. Then $f^{-1}(D_V(g))=\bigcup^n_{i=1} f_i^{-1}(D_V(g))=\bigcup^n_{i=1}D_{V_i}(\varphi(g) )$ is quasi-compact, since $D_{V_i}(\varphi(g) )$ is quasi-compact.
+	\end{proof}
+	As a corollary of Lemma \ref{l2.3.1}, we can immediately conclude that
+	\begin{lm}
+		\label{l2.3.2}
+		If $V$ is an open affine subset of $Y$ such that $f^{-1}(V)$ is quasi-compact, then $f^{-1}(W)$ is also quasi-compact if $W$ is an open affine open subset of $V$.
+	\end{lm}
+	Let $V$ be an open affine subset of $V$. Assume that $Y=\bigcup_i V_i$ such that $V_i= \mathrm{Spec}\,B_i$ and $f^{-1}(V_i) $ is quasi-compact. We
+	can write $V\subseteq \bigcup_{i=1}^{n}V_i$, since $V$ is quasi-compact. So it suffices to show that $f^{-1}(V\cap V_i)$ is quasi-compact.
+	Pick an open affine cover $\{W_{ik}\}_k$ of $ V\cap V_i$. By Lemma \ref{l2.3.2}, $f^{-1}(W_{ik})$ is compact. Since
+	$V$ is quasi-compact and $\{W_{ik}\}_{i,k}$ is also an open affine cover of $V$, $V$ can be covered by finitely many $W_{ik}$ and hence so is $V\cap V_i$, which implies that $f^{-1}(V\cap V_i)$ is quasi-compact.
+	
+	Sufficiency is trivial.
+\end{proof}
+
+\begin{exe}
+	\label{2.3.3}
+	(a) Show that a morphism $f:X\rightarrow Y$ is of finite type if and only if it is locally of finite type and quasi-compact.
+	
+	(b) Conclude from this fact that $f$ is of finite type if and only if for every open affine subset $V=\mathrm{Spec}\,B$ of $Y$, $f^{-1}(Y)$ can be covered
+	by a finite number of open affines $U_j=\mathrm{Spec}\,A_j$, where $A_j$ is a finitely generated $B$-algebra.
+	
+	(c) Show also if $f$ is of finite type, then for every open affine subset $V=\mathrm{Spec}\,B\subseteq Y$, and for every open affine
+	subset $U=\mathrm{Spec}\,A\subseteq f^{-1}(V)$, A is a finitely generated $B$-algebra.
+\end{exe}
+\begin{proof}
+	(a) Necessity: Let $\{V_i\}$ be an open affine cover of $Y$. Then $f^{-1}(V_i)=\bigcup_{j=1}^{n_i}U_{ij}$ where $U_{ij}$ are open affine, so $f^{-1}(V_i)$ is quasi-compact, which implies $f$ is quasi-compact.
+	
+	Sufficiency: By Ex. \ref{2.3.2}, $f^{-1}(V)$ is quasi-compact for every affine open subset $V$ of $Y$.
+	
+	(b) Necessity follows Ex. \ref{2.3.1}, \ref{2.3.2} and (a), and sufficiency is trivial.
+	
+	(c) Since $f$ is of finite type, $f^{-1}(V)=\bigcup_{i=1}^nU_i$, with $U_i=\mathrm{Spec}\,A_i$, where $A_i$ are finitely generated $B$-algebras. Pick an open affine cover $W_{ik}$ of $U\cap f^{-1}(U_i)$, such that 
+	$W_{ik}$ are principle both in $U$ and $U_i$, i.e. $W_{ik}=\mathrm{Spec}\,A_{g_{ik}}=\mathrm{Spec}\,(A_{i})_{f_{k}}$. So $A_{g_{ik}}\simeq (A_{i})_{f_k}$ are finitely generated $B$-algebras. Since $U=\bigcup_{i,k} W_{ik}$, and
+	$U$ is quasi-compact, we can pick an finite subcover of $\{W_{ik}\}$ of $U$, say, $U=\bigcup_{i=1}^n\bigcup_{k=1}^{l_i}W_{ik}$. Then we have $a_{ik}\in A$, such that $\sum_{i,k} a_{ik}g_{ik}=1$.
+	And the result comes from the following lemma:
+	\begin{lm}
+		\label{l3}
+		If $A_{g_k}$ is a finitely generated $B$-algebra, for any $k=1,2,\dots,n$, with $\sum_{k=1}^n a_kg_k=1$, then A is also a finitely generated $B$-algebra.
+	\end{lm}
+	\begin{proof}[Proof of Lemma \ref*{l3}]
+		We may assume $a_k=1$, since $A_{a_kg_k}=A_{g_k}$. Then we assume $$A_{g_k}=B\left[\frac{x_1^{(k)}}{g_k^{n_k}},\frac{x_2^{(k)}}{g_k^{n_k}},\dots,\frac{x_{s_k}^{(k)}}{g_k^{n_k}}\right].$$
+		And we claim that $A=B[\{x_i^{(k)}\},\{g_k\}]$. For any $a\in A$, there exists $f_k\in B[T_1,T_2,\dots,T_{s_k}]$ such that $$a=f_k\left(\frac{x_1^{(k)}}{g_k^{n_k}},\frac{x_2^{(k)}}{g_k^{n_k}},\dots,\frac{x_{s_k}^{(k)}}{g_k^{n_k}}\right).$$
+		We multiplies $g_k$ of enough exponent on both side and get $ag_k^{m_k}=\bar {f}_k(x_1^{(k)},x_2^{(k)},\dots,x_{s_k}^{(k)})$. Set $m=\sum_k m_k$, then $ (\sum g_k)^m=1$, i.e. $\sum g_k^{m_k}l_k(g_1,g_2,\dots,g_n)=1$.
+		Therefore $a=\sum \bar{f_k}l_k\in B[\{x_i^{(k)}\},\{g_k\}]$, which complete the proof.
+	\end{proof}
+\end{proof}
+
+\begin{exe}
+	\label{2.3.4}
+	Show that a morphism $f:X\rightarrow Y$ is finite if and only if for every open affine subset $V=\mathrm{Spec}\,B$
+	of $Y$, $f^{-1}(Y)$ is affine, equal to $\mathrm{Spec}\,A$, where $A$ is a finitely generated $B$-module.
+\end{exe}
+
+\begin{proof}
+	Necessity:\begin{lm}
+		\label{l4}
+		The morphism $f|_U:f^{-1}(V)\to V$ is also finite.
+	\end{lm}
+	\begin{proof}[Proof of Lemma \ref*{l4} ]
+		Assume $V\subseteq\bigcup_{i=1}^mV_i$, where $V_i=\mathrm{Spec}\,B_i$ are affine open such that $f^{-1}(V_i)=\mathrm{Spec}\,A_i$, and $A_i$ is a finitely generated $B_i$-module. Write $U=f^{-1}(V)$ and $U_i=f^{-1}(V_i)$. Let $\varphi: B\rightarrow O_X(U)$ and $\varphi_i: B\rightarrow A_i$ be the homomorphisms induced by $f|_U: f^{-1}(V) \rightarrow V$ and $f|_{U_i}: \mathrm{Spec}\,A_i \rightarrow V_i$.
+		
+		Let $D_{V_i}(g)\subseteq V\cap V_i$ be a principle open subset of $V_i$ for some $g\in B_i$. Then $$D_{V_i}(g)=\mathrm{Spec}\,(B_i)_g\quad\text{and}\quad f^{-1}(D_{V_i}(g))=D_{U_i}(\varphi_i(g))=\mathrm{Spec}\,(A_i)_{\varphi_i(g)}.$$ It is clear that $(A_i)_{\varphi_i(g)}$ is a finite generated module over $(B_i)_g$. Write $V\cap V_i=\bigcup_j D_{V_i}(g_j)$. Then the open affine cover $\{D_{V_i}(g_j)\}$ of $V$ satisfies the requirement for a finite morphism.
+	\end{proof}
+	With Lemma \ref{l4}, the conclusion we want is equivalent to the following proposition:
+	
+	\emph{Assume that $Y=\mathrm{Spec}\,B$ is affine. Then the morphism $f:X\to Y$ is finite if and only if $X=\mathrm{Spec}\,A$ is also affine and $A$ is a finitely generated $B$-module.}
+	
+	Let $\{V_i\}$ be an open affine cover of $Y$ with $V_i=\mathrm{Spec}\,B_i$ affine open such that $U_i=f^{-1}(V_i)=\mathrm{Spec}\,A_i$, and $A_i$ is a finitely generated $B_i$-module. Write $\varphi=f^\#(X)$ and $\varphi_i=f^\#(U_i)$.
+	\begin{lm}
+		\label{l6}
+		If the principle open subset $D_Y(g)\subseteq V_i$ for some $i$, then $f^{-1}(D_Y(g))=\mathrm{Spec}\,(A_i)_{\varphi_i(g|_{V_i})}$ is affine and $(A_i)_{\varphi_{i}(g|_{V_i})}$ is a finitely generated $(B_i)_{(g|_{V_i})}$-module.
+	\end{lm}
+	\begin{proof}[Proof of Lemma \ref*{l6}]
+		By Ex. \ref{2.2.16}\,(a), $$D_Y(g)=D_Y(g)\cap V_i=Y_g\cap V_i=D_{V_i}(g|_{V_i})=\mathrm{Spec}\,(B_i)_{(g|_{V_i})}.$$ Thus we have $f^{-1}(D_Y(g))=D_{U_i}(\varphi_i(g|_{V_i}))=\mathrm{Spec}\,(A_i)_{\varphi_i(g|_{V_i})}.$ And it is clear that $(A_i)_{\varphi_{i}(g|_{V_i})}$ is a finitely generated $(B_i)_{(g|_{V_i})}$-module.
+	\end{proof}
+	With Lemma \ref{l6}, we may assume that $V_i$ are principle open subset of $Y$ with $B_i=B_{g_i}$ for some $g_i\in B$. Since $Y$ is quasi-compact, we can assume that the cover is finite.
+	\begin{lm}
+		\label{l5}
+		Assume that $Y=\mathrm{Spec}\,R$ is affine and $\varphi:R\to\Gamma(X,\mathcal{O}_X)$ is the homomorphism induced by $f$. Then $f^{-1}(D(g))=X_{\varphi(g)}$.
+	\end{lm}
+	\begin{proof}[Proof of Lemma \ref*{l5}]
+		Let $\{U_i\}$ be an open affine cover of $X$. Then we have $(f|_{U_i})^{-1}(D(g))=D_{U_i}(\varphi(g)|_{U_i})$. Hence by Ex. \ref{2.2.16}\,(a), we have $f^{-1}(D(g))=X_{\varphi(g)}$.
+	\end{proof}
+	With Lemma \ref{l5}, we have that $\{X_{\varphi(g_i)}\}$ is a finite open affine cover of $X$ with $X_{\varphi(g_i)}=\mathrm{Spec}\,A_i$. Moreover $X_{\varphi(g_i)}\cap X_{\varphi(g_j)}=X_{\varphi(g_ig_j)}=f^{-1}(D_Y(g_ig_j))$ is affine by Lemma \ref{l6}, and hence $X_{\varphi(g_i)}\cap X_{\varphi(g_j)}$ is quasi-compact for each $i,j$. Let $A=\Gamma(X,\mathcal{O}_X)$. Then by Ex. \ref{2.2.16}\,(d), $A_i=A_{\varphi(g_i)}$. With the construction of the structure sheaf from the basis, we have $A=\bigcap_iA_{\varphi(g_i)}$, which implies that $\varphi(g_1),\dots,\varphi(g_n)$ generate the unit ideal of $A$ (this is not trivial!). By Ex. \ref{2.2.17}\,(b), $X=\mathrm{Spec}\,A$ is affine. With the assumption that $A_{\varphi(g_i)}$ is a finitely generated $B_{g_i}$-module, write $A_{\varphi(g_i)}=\varphi_i(B_{g_i})l_{i1}+\dots+\varphi_i(B_{g_i})l_{it_i}$, with $l_{i1},\dots,l_{it_i}\in A$. Thus for any $a\in A$, we have $$a=\frac{1}{\varphi(g_i)^{k_i}}(\varphi(b_{i1})l_{i1}+\dots+\varphi(b_{it_i})l_{it_i})$$for each $i$ with $k_i\in\mathbb{Z}_{\geq0}$ and $b_{ij}\in B$ for $j=1,\dots,t_i$. And hence$$\varphi(g_i)^{k_i}a=\varphi(b_{i1})l_{i1}+\dots+\varphi(b_{it_i})l_{it_i}.$$Since $g_1,\dots,g_n$ generate the unit ideal of $B$, which follows the assumption that $\{D_Y(g_i)\}$ covers $Y$, we have $h_1g_1+\dots+h_ng_n=1$ for some $h_1,\dots,h_n\in B$. Therefore,
+	\begin{align*}
+		a&=\left(\varphi(h_1)\varphi(g_1)+\dots+\varphi(h_n)\varphi(g_n)\right)^ka\\
+		&=\varphi(p_1)\varphi(g_1)^{k_1}a+\dots+\varphi(p_n)\varphi(g_n)^{k_n}a\\
+		&=\sum_{i,j}\varphi(q_{ij})l_{ij}
+	\end{align*}
+	where $k=k_1+\dots+k_n$, and each $p_i,q_{ij}\in B$. Hence we can conclude that $A$ is a finitely generated $B$-module with generators $\{l_{ij}\}$.
+\end{proof}
+\begin{exe}
+	\label{2.3.5}
+	A morphism $f:X\to Y$ is \emph{quasi-finite} if and only if for every point $y\in Y$, $f^{-1}(y)$ is a finite set.
+	
+	(a) Show that a finite morphism is quasi-finite.
+	
+	(b) Show that a finite morphism is \emph{closed}, i.e., the image of any closed subset is closed.
+	
+	(c) Show by example that a surjective, finite-type, quasi-finite morphism need not be finite.
+\end{exe}
+\begin{proof}
+	(a) As the property is local, assume that $Y=\mathrm{Spec}\,B$ is affine. By Ex. \ref{2.3.4}, $X=\mathrm{Spec}\,A$ is affine where $A$ is a finite $B$-module. By Ex. \ref{2.3.10}, we can replace $f^{-1}(y)$ by $X_y=X\times_Yk(y)\simeq\mathrm{Spec}(A\otimes_{B}k(y))$. Since $A$ is finite over $B$, $A\otimes_{B}k(y)$ is a finite-dimensional $k(y)$-vector space, and hence its Krull dimension is zero. Therefore $f^{-1}(y)$ is a finite set.
+	
+	(b) It suffices to prove for the case that $X,Y$ are both affine and we use the notations of (a). Let $Z\subseteq X$ be a closed subset. Then by Ex. \ref{2.3.11}(b), $Z\simeq\mathrm{Spec}\,A/I$ for some ideal $I$ of $A$. Hence the morphism from $Z$ to $Y$
+	\begin{equation*}
+		\begin{tikzcd}
+			Z \arrow[r, hook] & X \arrow[r, "f"] & Y
+		\end{tikzcd}
+	\end{equation*}
+	is still finite. Therefore we only need to show that $f(X)$ is closed in $X$. Let $J=\ker f^{\#}$. Then $f(X)\subseteq V(J)\simeq\mathrm{Spec}\,B/J=:Y^{\prime}$ and hence we can factor $f$ as
+	\begin{equation*}
+		\begin{tikzcd}
+			X \arrow[r, "f^{\prime}"] & Y^{\prime} \arrow[r, hook] & Y
+		\end{tikzcd}
+	\end{equation*}
+	with $f^{\prime\#}$ injective. By Theorem \ref{t2}, $f^{\prime}$ is surjective, and hence $f(X)=V(J)$ is closed.
+	
+	(c) Assume that $k$ is algebraically closed. Let $A=\mathrm{Spec}\,k[T_1,T_2]/(T_1T_2-1)$ and $B=\mathrm{Spec}\,k$. Then let $X=A\sqcup B$ and $Y=\mathbb{A}^1$. By Ex. \ref{2.2.4}, the homomorphism $k[T]\rightarrow \Gamma(X,\mathcal{O}_X)\simeq k[T_1,T_2]/(T_1T_2-1)\times k,\ g(T)\mapsto(g(T_1),g(0))$ induces $f:X\to Y$. It is clear that $f$ is surjective and of finte type. Moreover $f$ is injective and hence quasi-finite. However $f$ is not finite, since $T_2$ is not integral over $k[T]$.
+\end{proof}
+\begin{exe}
+	\label{2.3.6}
+	Let $X$ be an integral scheme. Show that the local ring $\mathcal{O}_{\xi}$ of the generic point $\xi$ of $X$ is a field. It is called the \emph{function field} of $X$, and is denoted by $K(X)$. Show also that if $U=\mathrm{Spec}\,A$ is any open affine subset of $X$, then $K(X)$ is isomorphic to the quotient field of $A$.
+\end{exe}
+\begin{proof}
+	As the property is local, assume that $X=\mathrm{Spec}\,B$ is affine where $B$ is a integral domain. Then $\xi=(0)$ and hence $\mathcal{O}_{\xi}=B_{(0)}=\mathrm{Frac}\,B$ is a field. For any affine open subset $U$, $\xi$ is still the generic point of $U$ and $\mathcal{O}_{\xi}=\mathcal{O}_{U,\xi}$. Then the previous discussion tells us that $\mathcal{O}_{\xi}=\mathrm{Frac}\,A$.
+\end{proof}
+\begin{exe}
+	\label{2.3.7}
+	A morphism $f:X\to Y$, with $Y$ irreducible, is \emph{generically finite} if $f^{-1}(\eta)$ is a finite set, where $\eta$ is the generic point of $Y$. A morphism $f:X\to Y$ is \emph{dominate} if $f(X)$ is dense in $Y$. Now let $f: X \rightarrow Y$ be a dominant, generically finite morphism of finite type of integral schemes. Show that there is an open dense subset $U \subseteq Y$ such that the induced morphism $f^{-1}(U) \rightarrow U$ is finite.
+\end{exe}
+
+\begin{proof}
+	This question is not easy,  the following results are used which are not only listed in advance,  but also stated completely as they're extremely important!!
+	\begin{theorem}[Noether Normalization]
+		\label{t1}
+		For any field $k$, and any finitely generated commutative $k$-algebra $A$, there exists a non-negative integer $d$ and algebraically independent elements $y_{1}, y_{2}, \dots, y_{d}$ in $A$ such that $A$ is a finitely generated module over the polynomial ring $S=k\left[y_{1}, y_{2}, \dots, y_{d}\right]$. \emph{(See \cite[Ch. 5, Ex. 16, P. 69]{ATIY}.)}
+	\end{theorem}
+	\begin{theorem}[``Going-up'']
+		\label{t2}
+		If $B$ is an integral extension of $A$, then the extension satisfies the going-up property,  i.e.  whenever $\mathfrak{p}_{1} \subseteq \mathfrak{p}_{2} \subseteq \dots \subseteq \mathfrak{p}_{n}$ is a chain of prime ideals of $A$ and $\mathfrak{q}_{1} \subseteq \mathfrak{q}_{2} \subseteq \dots \subseteq \mathfrak{q}_{m}$ $(m<n)$ is a chain of prime ideals of $B$ such that for each $1 \leq i \leq m,\  \mathfrak{q}_{i}$ lies over $\mathfrak{p}_{i}$, then the latter chain can be extended to a chain 
+		$\mathfrak{q}_{1} \subseteq \mathfrak{q}_{2} \subseteq \dots \subseteq \mathfrak{q}_{n}$ such that for each $1 \leq i \leq n,\ \mathfrak{q}_{i}$ lies over $\mathfrak{p}_{i}$. \emph{(See \cite[Ch. 5, Th. 5.11, P. 62]{ATIY}.)}
+	\end{theorem}
+	\begin{lm}
+		\label{l9}
+		We say a morphism of schemes $f:X\to Y$ \emph{integral} if there is an open affine sets $V_i=\mathrm{Spec}\,B_i$ of $Y$ such that, for each $i$, $f^{-1}(V_i)=\mathrm{Spec}\,A_i$ is affine, where $A_i$ is integral over $B_i$ as a $B_i$-algebra. A morphism of schemes is finite if and only if it is of finite type and integral. \emph{(See \cite[Def. 6.1.1 and Prop. 6.1.4, P. 110]{EGA2}.)}
+	\end{lm}
+	Step 1: $k(X)$ is a finite field extension of $k(Y)$.  By the condition ``finite type'',  we can choose an open affine $\mathrm{Spec}\, B=V \subseteq Y$ and an open affine in its preimage $\operatorname{Spec} A=U \subseteq f^{-1} (V)$ such that $A$ is a finitely generated $B$-algebra.   Since the function field is determined by its open set,  it doesn't matter to substitute ``algebra'' with ``module''.   
+	
+	Now $A$ is finitely generated over $B$ and therefore  $k(B) \otimes_{B} A$ is finitely generated over $k(B)$, where $k(B)$ is the function field of $V$, i.e. the quotient field of $B$ (since $Y$ is integral, the generic point is unique and hence $k(Y)=k(B)$). 
+	So by Theorem \ref{t1}, there is an integer $n$ and a
+	morphism $k(B)[t_{1}, \ldots, t_{n}] \rightarrow k(B) \otimes_{B} A$ for which $k(B) \otimes_{B} A$ is integral over $k(B)[t_{1}, \ldots, t_{n}]$.  $\operatorname{Spec}(k(B)\otimes A)=\operatorname{Spec}k(B) \times  \operatorname{Spec}A$.  By the commutative diagram:
+	\begin{equation*}
+		\begin{tikzcd}
+			\operatorname{Spec}k(B) \times \operatorname{Spec}A \arrow[d] \arrow[r] & \operatorname{Spec}k(B) \arrow[d] \\
+			\operatorname{Spec}A \arrow[r]                                            & \operatorname{Spec}B             
+		\end{tikzcd}
+	\end{equation*}
+	$\mathrm{Spec}(k(B) \otimes_{B} A)$ has the same underlying space as $f^{-1}\left(\eta_{Y}\right) \cap U$, which is finite by our assumption, and is not empty since the morphism is dominant.  By Theorem \ref{t2}, $\mathrm{Spec}(k(B) \otimes_{B} A) \rightarrow\mathrm{Spec} (k(B)[t_{1}, \ldots, t_{n}])$ is surjective we see that $n=0$. Then the morphism $\operatorname{Spec}k(B) \times \operatorname{Spec}A\to\operatorname{Spec}k(B)$ is of finte type and integral, by Lemma \ref{l9}, we can complete Step 1.
+	
+	Step 2: The case where $X$ and $Y$ are affine.  Let $X=\operatorname{Spec} A$, and $Y=\operatorname{Spec} B$ and consider a set of generators $\left\{a_{i}\right\}$ for $A$ over $B$. Considered as an element of $k(A)$, each generator satisfies some polynomial in $k(B)$ since it is a finite field extension. Clearing denominators, we get a set of polynomials with coefficients in $B$. Let $b$ be the product of the leading coefficients in these polynomials. Replacing $B$ and $A$ with $B_{b}$ and $A_{b}$, all these leading coefficients become units, and so after multiplying by their inverses, we can assume that the polynomials are monic. That is, $A_{b}$ is finitely generated over $B_{b}$ and there is a set of generators that satisfy monic polynomials with coefficients in $B_{b}$. Hence, $A_{b}$ is integral over $B_{b}$ and therefore a finitely generated $B_{b}$-module.
+	
+	Step 3: Since the question is local on the base,  we can always assume $Y$ is affine.  Cover $f^{-1}(Y)$ with finitely many open affine subsets $U_{i}= \mathrm{Spec}\,A_{i} $. By Step 2, for each $i$ there is a dense open subsets $V_{i}$ of $Y$ such that $f^{-1}(V_{i})\cap U_{i}\rightarrow V_{i}$  is finite,  take $V'=\bigcap V_{i}$,  then $f^{-1}(V')\cap U_{i}\rightarrow V'$ is finite for all $i$.  Write $U_{i} \cap f^{-1} (V^{\prime})$ as $U_{i}$,  and  take a principal open affine set $U^{\prime} \subseteq \bigcap U_{i}$, which there are elements $a_{i} \in A_{i}$ such that $U^{\prime}=\operatorname{Spec}\left(A_{i}\right)_{a_{i}}$ for each $i$. Similiar to the Step 2, each $A_{i}$ is finite over $B$, there are monic polynomials $g_{i}$ with coefficients in $B$ that the $a_{i}$ satisfy. Take $g_{i}$ of smallest possible degree so that the constant terms $b_{i}$ are nonzero and define $b=\prod b_{i} .$ Now the preimage of $\operatorname{Spec} B_{b}$ is $\operatorname{Spec}\left(\left(A_{i}\right)_{a_{i}}\right)_{b}$ (any $i$ gives the same open) and $\left(\left(A_{i}\right)_{a_{i}}\right)_{b}$ is a finitely generated $B_{b}$ module. So we are done.  
+	
+	We can also get a similiar proposition in \cite[\href{https://stacks.math.columbia.edu/tag/02NW}{Tag 02NW}]{stacks-project},  which states that the result holds if $f$  is quasi-compact and quasi-separated,  locally of finite type beween two arbitrary schemes.
+\end{proof}
+
+\begin{exe}[Normalization]
+	\label{2.3.8}
+	A scheme is \emph{normal} if all of its local rings are integrally closed domains. Let $X$ be an integral scheme.  For each open affine subset $U= \mathrm{Spec}\,A$ of $X$, let $\widetilde{A}$ be the integral closure of $A$ in its quotient field, and let $\widetilde{U}=\operatorname{Spec} \widetilde{A} $. Show that one can glue the schemes $\widetilde{U}$ to obtain a normal integral scheme $\widetilde{X}$ called the \emph{normalization} of $X$. show also that there is a morphism $\widetilde{X} \rightarrow X$ having the following universal property: for every normal integral scheme $Z$, and for every dominant morphism $f: Z \rightarrow X$, $f$ factors uniquely through $\widetilde{X} .$ If $X$ is of finite type over a field $k$, then the morphism $\widetilde{X} \rightarrow X$ is a finite morphism.
+\end{exe}
+
+\begin{proof}
+	We can check they can be patched directly,  but I want to give a more advanced construction from \cite{stacks-project} so that we can deal with more general schemes. 
+	\begin{lm}
+		Let $X$ be a scheme. Let $\mathcal{A}$ be a quasi-coherent sheaf of $\mathcal{O}_{X}$-algebras.  The subsheaf $\mathcal{A}^{\prime} \subset \mathcal{A}$ defined by the rule
+		\begin{equation*}
+			\begin{tikzcd}
+				U \arrow[r, maps to] & \left\{f \in \mathcal{A}(U) \mid f_{x} \in \mathcal{A}_{x}\right.\text{integral over }\mathcal{O}_{X, x}\text{ for all }\left.x \in U\right\}
+			\end{tikzcd}
+		\end{equation*}
+		is a quasi-coherent $\mathcal{O}_{X}$-algebra, the stalk $\mathcal{A}_{x}^{\prime}$ is the integral closure of $\mathcal{O}_{X, x}$ in $\mathcal{A}_{x}$, and for any affine open $U \subseteq X$ the ring $\mathcal{A}^{\prime}(U) \subseteq \mathcal{A}(U)$ is the integral closure of $\mathcal{O}_{X}(U)$ in $\mathcal{A}(U)$.   \emph{(See \cite[\href{https://stacks.math.columbia.edu/tag/035F}{Tag 035F}]{stacks-project}).}
+	\end{lm}
+	\begin{defn}
+		Let $f: Y \rightarrow X$ be a quasi-compact and quasi-separated morphism of schemes. Let $\mathcal{O}^{\prime}$ be the integral closure of $\mathcal{O}_{X}$ in $f_{*} \mathcal{O}_{Y}$. The normalization of $X$ in $Y$ is the scheme
+		\begin{equation*}
+			\begin{tikzcd}
+				\nu: X^{\prime}=\underline{\operatorname{Spec}}_{X}\left(\mathcal{O}^{\prime}\right) \arrow[r] & X
+			\end{tikzcd}
+		\end{equation*}
+		over $X$.  It comes equipped with a natural factorization (by the property of relative spectra)
+		\begin{equation*}
+			\begin{tikzcd}
+				Y \arrow[r, "f'"] & X' \arrow[r, "\nu"] & X
+			\end{tikzcd}
+		\end{equation*}
+		of the initial morphism $f$.
+	\end{defn}
+	Next, we come to the normalization of a scheme $X .$ We only define/construct it when $X$ has locally finitely many irreducible components. Let $X$ be a scheme such that every quasi-compact open has finitely many irreducible components. Let $X^{(0)} \subseteq X$ be the set of generic points of irreducible components of $X .$ Let
+	\begin{equation*}
+		\begin{tikzcd}
+			f: Y=\coprod\limits_{\eta \in X^{(0)}} \operatorname{Spec}\kappa(\eta) \arrow[r] & X
+		\end{tikzcd}
+	\end{equation*}
+	be the inclusion of the generic points into $X$ using the canonical maps of schemes.  
+	We define the normalization of $X$ as the morphism
+	\begin{equation*}
+		\begin{tikzcd}
+			\nu: X^{\nu} \arrow[r] & X
+		\end{tikzcd}
+	\end{equation*}
+	which is the normalization of $X$ in the morphism $f: Y \rightarrow X$ constructed above.
+	
+	For a normal integral scheme $Z$ and a dominant morphism $f: Z \rightarrow X$,  since a morphism of integral schemes $f$ is dominant  iff for all nonempty affine opens $U \subseteq X$ and $V \subseteq Y$ with $f(U) \subseteq V$ the ring map $\mathcal{O}_{Y}(V) \rightarrow \mathcal{O}_{X}(U)$ is injective,  and the minimal normal ring contained $\mathcal{O}_{X}(U)$ is its normaliztion in its fractional field,  so $f$ factorizes through $\nu$.
+	
+	If $X$ is of finite type over a field $k$,  there exists a affine cover $\{\mathrm{Spec}\,A_{i}\}$,  where $A_{i}$ are all finitely generated $k$-algebra.  The morphism $\widetilde{X} \rightarrow X$ is a finite morphism followed by the proposition that the integral closure $A$ of a finitely generated $k$-algebra $A$ is a finitely generated $A$-module.
+\end{proof}
+\begin{exe}[The Topological Space of a Product]
+	\label{2.3.9}
+	Recall that in the category of varieties, the Zariski topology on the product of two varieties is not equal to the product topology. Now we see that in the category of schemes, the underlying point set of a product of schemes is not even the product set.
+	
+	(a) Let $k$ be a field, $\mathbb{A}_k^1=\mathrm{Spec}\, k[x]$. Show $\mathbb{A}_k^1 \times_{\mathrm{Spec}\, k} \mathbb{A}_k^1\cong \mathbb{A}_k^2$. And show that the underlying
+	point set of the product is not the product of the underlying point sets of the factors. (even if $k$ is algebraically closed.)
+	
+	(b) Let $k$ be a field, let $s,t$ be indeterminates over $k$. Then $\mathrm{Spec}\,k(s),\ \mathrm{Spec}\,k(s)$, and $\mathrm{Spec}\,k$ are all one-point spaces. Describe the product scheme $\mathrm{Spec}\, k(s)\times_{\mathrm{Spec}\, k}\mathrm{Spec}\, k(t)$.
+\end{exe}
+
+\begin{proof}
+	(a) $\mathbb{A}_k^1 \times_{\mathrm{Spec}\, k} \mathbb{A}_k^1\simeq \mathrm{Spec}(k[x_1]\otimes_k k[x_2])\simeq \mathbb{A}_k^2$.
+	
+	There is a natural map of sets $\mathbb{A}_k^1\times\mathbb{A}_k^1\to\mathbb{A}_k^2$ by sending $(f(x)k[x],g(x)k[x])$ to $f(x_1)k[x_1,x_2]+g(x_2)k[x_1,x_2]$, which is not surjective. However, I have no idea about whether the cardinaries of these two sets are equal.
+	
+	(b) $\mathrm{Spec}\, k(s)\times_{\mathrm{Spec}\, k}\mathrm{Spec}\, k(t)=\mathrm{Spec} (k(s)\otimes _k k(t))$.
+	
+	Let $$R=\left\{\frac{f(s,t)}{g(s)h(t)}\,\Bigg|\,f\in k[s,t],\ g\in k[s]\text{ and }h\in k[t]\right\}.$$Then we have that $k(s)\otimes_k k(t)\simeq R$ is a integral domain but is not a field. Hence $\#(\mathrm{Spec}\, k(s)\times_{\mathrm{Spec}\, k}\mathrm{Spec}\, k(t))=\#\mathrm{Spec} (k(s)\otimes _k k(t))>1$.
+\end{proof}
+
+\begin{exe}[Fibres of a Morphism]
+	\label{2.3.10}
+	\ 
+	
+	(a) If $f: X\rightarrow Y$ is a morphism, and $y\in Y$ a point, show that $\mathrm{sp}(X_y)$ is homeomorphic to $f^{-1}(y)$
+	with the induced topology.
+	
+	(b) Let $X=\mathrm{Spec}\,k[s,t]/(s-t^2)$, let $Y=\mathrm{Spec}\,k[s]$, and $f:X\to Y$ be the morphism defined by sending $s\to s$. If $y\in Y$ is the point $a\in k$ with $a\neq0$, show that $X_y$ consists of two points, with residue field $k$. If $y\in Y$ corresponds to $0\in k$, show that the fibre $X_y$ is a nonreduced one-point scheme. If $\eta$ is the generic point of $Y$, show that $X_\eta$ is a one-point scheme, whose residue field is an extension of degree two of the residue field of $\eta$. (Assume $k$ algebraically closed.)
+\end{exe}
+
+\begin{proof}
+	(a) We first prove the proposition in the case when $X,Y$ are affine. Assume $Y=\mathrm{Spec}\, A$ and $X=\mathrm{Spec}\, B$. Then $y$ is a prime ideal of $A$. And $f$ induces $\varphi: A\rightarrow B$
+	Then $k(y)=A_y/\mathfrak{m}_y$, and $X_y=\mathrm{Spec}(B\otimes_Ak(y))$. We define $B_y$ to be $S^{-1}B$, where
+	$S=A-y$, a multiplicative closed set. So $B_y$ is an $A_y$-module, and thus an $A$-module. Notice that for $A$-module $C$, $S^{-1}C\simeq S^{-1}A\otimes_AC$ (See \cite[Ch. 3, Prop. 3.5, P. 39]{ATIY}).
+	So
+	\begin{align*}
+		B\otimes_Ak(y)&=B\otimes_A(A_y\otimes_A(A/y))=(B\otimes_AS^{-1}A)\otimes_A(A/y)\\
+		&=B_y\otimes_A (A/y)=(B_y\otimes_AA)/(B_y\otimes_Ay)=B_y/\varphi(y)B_y.
+	\end{align*}
+	Thus we have a natural morphism $h:X_y=\mathrm{Spec}(B_y/\varphi(y)B_y)\rightarrow\mathrm{Spec}\, B$, which splits as $\theta\circ j$: 
+	\begin{equation*}
+		\begin{tikzcd}
+			X_y=\mathrm{Spec}(B_y/\varphi(y)B_y) \arrow[r, "j"] & {\mathrm{Spec}\, B_y} \arrow[r, "\theta"] & {\mathrm{Spec}\, B} \arrow[r, "f"] & {\mathrm{Spec}\,A}
+		\end{tikzcd}
+	\end{equation*}
+	which are induced by homomorphisms:
+	\begin{equation*}
+		\begin{tikzcd}
+			A \arrow[r, "\varphi"] & B \arrow[r, "i"] & B_y \arrow[r, "\pi"] & B_y/\varphi(y)B_y
+		\end{tikzcd}.
+	\end{equation*}
+	And $j$ is a closed immersion mapping $X_y$ onto $V(\varphi(y)B_y)\subseteq\mathrm{Spec}\,B_y$ by Ex. \ref{2.3.11}\,(b), so it suffices to check:
+	$$\text{(1) }\theta(V(\varphi (y)B_y))=f^{-1}(y)\text{; \ (2) }\theta|_{V(\varphi(y)B_y)}\text{ is injective; \ (3) }\theta|_{V(\varphi(y)B_y)}\text{ is closed.}$$
+	\begin{proof}[Proof of (1)]
+		The fact that $$\theta(V(\varphi(y)B_y))=\{i^{-1}(\mathfrak{q})\,|\,\mathfrak{q}\in \mathrm{Spec}\, B_y,\ \varphi(y)B_y\subseteq \mathfrak{q}\}$$ implies that $f(i^{-1}(\mathfrak{q}))=\varphi^{-1}(i^{-1}(\mathfrak{q}))\supseteq y$. For any $a\in A-y$,
+		$i(\varphi(a))$ is a unit of $B_y$, which is not contained in $\mathfrak{q}$, so we have $f(i^{-1}(\mathfrak{q}))=\varphi^{-1}(i^{-1}(\mathfrak{q}))\subseteq y$. Then we have $f(i^{-1}(\mathfrak{q}))=\varphi^{-1}(i^{-1}(\mathfrak{q}))= y$. Hence $\theta(V(\varphi (y)B_y))\subseteq f^{-1}(y)$.
+		
+		For any $z\in f^{-1}(y)$, i.e. $\varphi^{-1}(z)=y$, we want to find $\mathfrak{q}\supseteq\varphi(y)B_y$, such that $i^{-1}(\mathfrak{q})=z$.
+		And we claim that $\mathfrak{q}=i(z)B_y$ satifies the condition. Firstly, since $z\supseteq\varphi(p)$, we have $\mathfrak{q}\supseteq\varphi(y)B_y$. Secondly, since $B_y/\mathfrak{q}=(B/z)\otimes_{B}B_y$ is some localization of an integral domain and hence is also an integral domain, $\mathfrak{q}$
+		is a prime. Thirdly, it is clear that $i^{-1}(\mathfrak{q})=z$.
+	\end{proof}
+	\begin{proof}[Proof of (2)]
+		By the claim in the proof of (1), we have $\mathfrak{q}= i(i^{-1}(\mathfrak{q}))B_y$, which implies the injectivity.
+	\end{proof}
+	\begin{proof}[Proof of (3)]
+		For any $\frac{b}{d}\in B_y$, By (1) we have
+		\begin{align*}
+			\theta\left(V(\varphi(y)B_y)\cap V\left(\frac{b}{d}\right)\right)&=\left\{i^{-1}(\mathfrak{q})\,\Big|\,\varphi(y)B_y\subseteq \mathfrak{q},\ \frac{b}{d}\in \mathfrak{q}\right\}\\
+			&=\{i^{-1}(\mathfrak{q})\,|\,\varphi(y)B_y\subseteq \mathfrak{q},\ b\in \mathfrak{q}\}\\
+			&=\{z\,|\,\varphi(y)\subseteq z,\ b\in z \},
+		\end{align*}
+		which is closed.
+	\end{proof}
+	Then we can conclude that $\theta\circ j$ is the homeomorphism from $X_y$ onto $f^{-1}(y)$. In fact, $\theta\circ j$ is the natural projection $X_y=X\times_Y\mathrm{Spec}\,k(y)\to X$.
+	
+	Now for general cases, we need the following lemma:
+	\begin{lm}
+		\label{l12}
+		Assume that $f:X\rightarrow Y$, $i:Z\rightarrow Y$ are morphisms of schemes, $V\subseteq Y$ is open, and $i(Z)\subseteq V$. Then $X\times_YZ\simeq f^{-1}(V)\times_VZ$.
+	\end{lm}
+	\begin{proof}[Proof of Lemma \ref*{l12}]
+		Let $p_1:X\times_YZ\to X$ and $p_2:X\times_YZ\to Z$ be the natural projections. The fact that $$(f\circ p_1)(X\times_YZ)=(i\circ p_2)(X\times_YZ)\subseteq i(Z)\subseteq V$$implies $p_1(X\times_YZ)\subseteq f^{-1}(V)$. Thus we have the following commutative diagram.
+		\begin{equation*}
+			\begin{tikzcd}
+				X\times_YZ \arrow[dddd, "p_1"] \arrow[rrdd, "p_2"] \arrow[rdd, dashed] \arrow[rr, dashed, bend left] &                                 & f^{-1}(V)\times_VZ \arrow[ldd] \arrow[dd] \arrow[ll, dashed] \\
+				&                                 &                                                              \\
+				& f^{-1}(V) \arrow[ldd] \arrow[d] & Z \arrow[ddd, "i"] \arrow[ld]                                \\
+				& V \arrow[rdd]                   &                                                              \\
+				X \arrow[rrd, "f"']                                                                                  &                                 &                                                              \\
+				&                                 & Y                                                           
+			\end{tikzcd}
+		\end{equation*}
+		Then we can get our conclusion from this diagram.
+	\end{proof}
+	Then we choose $V=\mathrm{Spec}\, A\subseteq Y$, such that $y\in \mathrm{Spec}\, A$, and assume $f^{-1}(V)=\bigcup_i \mathrm{Spec}\, B_i$.
+	So by Lemma \ref{l12},
+	\begin{align*}
+		X_y&=f^{-1}(V)\times_V\mathrm{Spec}\,k(y)\\
+		&=\left(\bigcup \mathrm{Spec}\, B_i\right)\times_{\mathrm{Spec}\, A}k(y)\\
+		&=\bigcup (\mathrm{Spec}\, B_i\times_{\mathrm{Spec}\, A}\mathrm{Spec}\,k(y)).
+	\end{align*}
+	Let $\mathrm{Spec}\, B_i\times_{\mathrm{Spec}\,A}\mathrm{Spec}\,k(y)=U_i$, and let $p$ be the natural
+	projection form $X_y$ to $X$. By The proof of affine cases, $p|_{U_i}$ is a homeomorphism from $U_i$ onto $(f|_{\mathrm{Spec}\, B_i})^{-1}(y)$, so $p$ is also a homeomorphism mapping $X_y$ onto $f^{-1}(y)$ by Ex. \ref{2.2.17}\,(a).
+	
+	(b) Trivial.
+\end{proof}
+\begin{exe}[Closed Subschemes]
+	\label{2.3.11}
+	\ 
+	
+	(a) Closed immersions are stable under base extension: if $f: Y \rightarrow X$ is a closed immersion, and if $g:X^{\prime} \rightarrow X$ is any morphism, then $f^{\prime}: Y \times_{X} X^{\prime} \rightarrow X^{\prime}$ is also a closed immersion.
+	
+	(b) If $Y$ is a closed subscheme of an affine scheme $X=\operatorname{Spec} A$, then $Y$ is also affine, and in fact $Y$ is the closed subscheme determined by a suitable ideal $\mathfrak{a} \subseteq A$ as the image of the closed immersion $\operatorname{Spec} A / \mathfrak{a} \rightarrow \operatorname{Spec} A$. Note: We will give another proof of this result using sheaves of ideals later (Corollary 2.5.10).
+	
+	(c) Let $Y$ be a closed subset of a scheme $X$, and give $Y$ the reduced induced subscheme structure. If $Y^{\prime}$ is any other closed subscheme of $X$ with the same underlying topological space, show that the closed immersion $Y \rightarrow X$ factors through $Y^{\prime} .$ We express this property by saying that the reduced induced structure is the smallest subscheme structure on a closed subset.
+	
+	(d) Let $f: Z \rightarrow X$ be a morphism. Then there is a unique closed subscheme $Y$ of $X$ with the following property: the morphism $f$ factors through $Y$, and if $Y^{\prime}$ is any other closed subscheme of $X$ through which $f$ factors, then $Y \rightarrow X$ factors through $Y^{\prime}$ also. We call $Y$ the \emph{scheme-theoretic image} of $f $. If $Z$ is a reduced scheme, then $Y$ is just the reduced induced structure on the closure of the image $f(Z)$.
+\end{exe}
+
+\begin{proof}
+	(a) The result follows immediately once we have (b). Suppose that we have proven (b). Firstly, assume that $X=\mathrm{Spec}\, A$, and $X^{\prime}=\operatorname{Spec} B$. Then $Y=\operatorname{Spec} A / I$, and the morphism $Y \times_{X} X^{\prime} \rightarrow X^{\prime}$ is
+	induced by the surjective homomorphism $B \rightarrow B \otimes_{A} (A / I)=B / I B ;$ it is therefore a closed immersion. 
+	
+	Then we consider the general case. Since the property of sheaves of closed immersion is local on $X$, we only need to prove the topological property. Let $\{V_i\}_i$ be an open affine cover of $X$ with $V_i=\mathrm{Spec}\,A_i$ and write $U_i=f^{-1}(V_i)$. Then for each $i$, $f|_{U_i}:f^{-1}(V_i)\to V_i$ is also a closed immersion, and hence by (b), $U_i$ is affine. Let $\{W_{ij}\}_j$ be an affine open cover of $g^{-1}(V_i)$. Then we get an affine open cover $\{W_{ij}\}_{i,j}$ of $X'$ such that $g(W_{ij})\subseteq V_i$. By Lemma \ref{l12}, we have$$f'^{-1}(W_{ij})=Y\times_XW_{ij}\simeq U_i\times_{V_i}W_{ij}$$is affine, and moreover $\{Y\times_XW_{ij}\}_{i,j}$ is an open affine cover of $Y\times_XX'$. Hence $f'|_{Y\times_XW_{ij}}:Y\times_XW_{ij}\to W_{ij}$ is a closed immersion for each $i,j$. With the discussion above, it is easy to get that $f'$ is a closed immersion.
+	
+	(b) We use a method based on the mentioned ``sheaf of ideals''. In fact all the followings come from \cite[Ch. 2, Prop. 3.20, P. 47]{LIU}. See \cite[Ch. 3, Th. 3.42, P. 84]{GW} and \cite[P. 32]{BAG} for other proofs. First we need some lemmas.
+	\begin{lm}
+		\label{l13}
+		Let $\left(X, \mathcal{O}_{X}\right)$ be a ringed topological space. Let $\mathcal{J}$ be a sheaf of ideals of $\mathcal{O}_{X}$ (i.e., $\mathcal{J}(U)$ is an ideal of $\mathcal{O}_{X}(U)$ for every open subset $\left.U\right)$. Let $V(\mathcal{J}):=\left\{x \in X \mid \mathcal{J}_{x} \neq \mathcal{O}_{X, x}\right\} .$ Let $j: V(\mathcal{J}) \rightarrow X$ denote the inclusion. Then $V(\mathcal{J})$ is a closed subset of $X,\left(V(\mathcal{J}), j^{-1}\left(\mathcal{O}_{X} / \mathcal{J}\right)\right)$ is a ringed topological space, and we have a closed immersion $\left(j, j^{\#}\right)$ of this space into $\left(X, \mathcal{O}_{X}\right)$, where $j^{\#}$ is the canonical surjection
+		\begin{equation*}
+			\begin{tikzcd}
+				\mathcal{O}_{X} \arrow[r] & \mathcal{O}_{X} / \mathcal{J}=j_{*}\left(j^{-1}\left(\mathcal{O}_{X} / \mathcal{J}\right)\right)
+			\end{tikzcd}
+		\end{equation*}
+	\end{lm}
+	\begin{proof}[Proof of Lemma \ref*{l13}]
+		If $x \in X \backslash V(\mathcal{J})$, there exist an open neighborhood $U \ni x$ and $f \in \mathcal{J}(U)$ such that $f_{x}=1$. It follows that $\left.f\right|_{V}=1$ in an open neighborhood $V \subseteq U$ of $x$. We then have $V \subseteq X \backslash V(\mathcal{J})$. The latter is therefore open. For every $x \in V(\mathcal{J}),\left(j^{-1}\left(\mathcal{O}_{X} / \mathcal{J}\right)\right)_{x}=\left(\mathcal{O}_{X} / \mathcal{J}\right)_{x}=\mathcal{O}_{X, x} / \mathcal{J}_{x}$ is a local ring.
+		The rest follows immediately.
+	\end{proof}
+	\begin{lm}
+		\label{l14}
+		Let $f: Y \rightarrow X$ be a closed immersion of ringed topological spaces. Let $Z$ be the ringed topological space $V(\mathcal{J})$ where $\mathcal{J}=\ker f^{\#} \subseteq \mathcal{O}_{X} .$ Then $f$ factors into an isomorphism $Y \simeq Z$ followed by the canonical closed immersion $Z \rightarrow X$.
+	\end{lm}
+	\begin{proof}[Proof of Lemma \ref*{l14}]
+		As $f(Y)$ is closed in $X$, we have
+		$$
+		\left(f_{*} \mathcal{O}_{Y}\right)_{x}=\left\{\begin{array}{ll}
+			0 & \text { if } x \notin f(Y) \\
+			\mathcal{O}_{Y, y} & \text { if } x=f(y)
+		\end{array}\right.
+		$$
+		Using the exact sequence $0 \rightarrow \mathcal{J} \rightarrow \mathcal{O}_{X} \rightarrow f_{*} \mathcal{O}_{Y} \rightarrow 0$, we deduce that $\mathcal{J}_{x}=\mathcal{O}_{X, x}$ if and only if $x \notin f(Y)$, whence the equality of sets $V(\mathcal{J})=f(Y)$. Let $j: Z \rightarrow X$ be the canonical injection. Let $g: Y \rightarrow Z$ be the homeomorphism induced by $f$. Then $f=j \circ g$ as maps and $j_{*} \mathcal{O}_{Z}=\mathcal{O}_{X} / \mathcal{J} \simeq$ $f_{*} \mathcal{O}_{Y} .$ We show without difficulty that $f_{*} \mathcal{O}_{Y}=j_{*} g_{*} \mathcal{O}_{Y}.$ It follows that $\mathcal{O}_{Z}=j^{-1} j_{*} \mathcal{O}_{Z} \simeq j^{-1} j_{*} g_{*} \mathcal{O}_{Y}=g_{*} \mathcal{O}_{Y},$ whence an isomorphism of ringed topological spaces $g: Y \xrightarrow{\sim} Z .$ And it is easy to verify that $f=j \circ g$ as morphisms of ringed topological spaces.
+	\end{proof}
+	We denote the closed immersion of $Y$  into  $X$  by  $j$. Let us first show that $Y$ verifies condition in Ex. \ref{2.2.16}\,(b). There exist open subsets $U_{p}$ of $X$ such that $\left\{j^{-1}\left(U_{p}\right)\right\}_{p}$ is an affine open covering of $Y$. Each $U_{p}$ is a union of principal open subsets $\left\{U_{p k}\right\}_{k}$ of $X$, and $j^{-1}\left(U_{p k}\right)$ is affine because it is a principal open subset of $j^{-1}\left(U_{p}\right)$. By adding principal open sets covering $X \backslash j(Y)$, we obtain (since $X$ is quasi-compact) a covering of $X$ by a finite number of principal open sets $\left\{V_{l}\right\}_{l}$ such that $j^{-1}\left(V_{l}\right)$ is affine for every $l$. As $j^{-1}\left(V_{l}\right) \cap j^{-1}\left(V_{l^{\prime}}\right)$ is a principal open subset of $j^{-1}\left(V_{l}\right)$, and therefore affine, we indeed have the condition.
+	
+	Let $\mathcal{J}=\ker j^{\#}$ and $\mathfrak{a}=\mathcal{J}(X) .$ We know that $Y$ is isomorphic to $V(\mathcal{J})$ endowed with the sheaf $\mathcal{O}_{X} / \mathcal{J}$ (Lemma \ref{l13}). Let $g \in A$. We let $h$ denote the image of $g$ in $\mathcal{O}_{Y}(Y)$. From the exact sequence $0 \rightarrow \mathfrak{a} \rightarrow A \rightarrow \mathcal{O}_{Y}(Y)$, we deduce an exact sequence by $\otimes_{A} A_{g}:$
+	$0 \rightarrow \mathfrak{a} \otimes_{A} A_{g} \rightarrow A_{g}=\mathcal{O}_{X}(D(g)) \rightarrow \mathcal{O}_{Y}(Y)_{h}.$ Now $\mathcal{O}_{Y}(Y)_{h}=\mathcal{O}_{Y}\left(Y_{h}\right)=j_{*} \mathcal{O}_{Y}(D(g)) $(Ex. \ref{2.2.16}); therefore we have $\mathcal{J}(D(g))=\mathfrak{a} \otimes_{A} A_{g} .$ Let $i: \operatorname{Spec} A / J \rightarrow X$ be the closed immersion defined canonically.  Then $(\ker i^{\#})(D(g))=\mathcal{J}(D(g))$ for every principal open subset $D(g)$ of $X .$ It follows that $\ker i^{\#}=\mathcal{J}$. Hence $Y\simeq \operatorname{Spec}A/\mathfrak{a}.$
+\end{proof}
+
+\begin{exe}[Closed Subschemes of $\operatorname{Proj} S$]
+	\label{2.3.12}
+	\ 
+	
+	(a) Let $\varphi: S \rightarrow T$ be a surjective homomorphism of graded rings, preserving degrees. Show that the open set $U$ of (Ex. \ref{2.2.14}) is equal to $\mathrm{Proj}\, T$, and the morphism $f: \operatorname{Proj} T \rightarrow \operatorname{Proj} S$ is a closed immersion.
+	
+	(b) If $I \subseteq S$ is a homogeneous ideal, take $T=S / I$ and let $Y$ be the closed subscheme of $X=\operatorname{Proj} S$ defined as the image of the closed immersion $\mathrm{Proj}\, S / I \rightarrow X .$ Show that different homogeneous ideals can give rise to the same closed subscheme. For example, let $d_{0}$ be an integer, and let $I^{\prime}=\bigoplus_{d \geq d_{0}} I_{d} .$ Show that $I$ and $I^{\prime}$ determine the same closed subscheme.
+	
+	We will see later (Corollary 2.5.16) that every closed subscheme of $X$ comes from a homogeneous ideal $I$ of $S$ (at least in the case where $S$ is a polynomial ring over $S_0$).
+\end{exe}
+
+\begin{proof}
+	(a) Recall that $U=\left\{\mathfrak{p} \in \operatorname{Proj} T \mid \mathfrak{p} \nsupseteq \varphi(S_{+})\right\}$. Since the morphism is surjective, we have $\varphi(S_+)=T_+$, and hence $\mathfrak{p} \nsupseteq \varphi(S_{+})\iff \mathfrak{p} \nsupseteq T_{+} $.  So by Ex. \ref{2.2.14},  we have a natural morphism $f: \operatorname{Proj} T \rightarrow \operatorname{Proj} S$.  Actually,  it is defined by $\mathfrak{p} \mapsto \varphi^{-1}(\mathfrak{p})$. 
+	
+	Check the sheaf of structure: since the map on stalks is the same as the localization map $\varphi(p): S_{(\mathfrak{p})} \rightarrow T \otimes_{S} S_{(\mathfrak{p})}$, which is surjective since $\varphi$
+	is surjective. 
+	
+	Check the space: claim $f( \mathrm{Proj}\, T)=V(\mathfrak{a})$, where $$\mathfrak{a}=\bigcap_{\mathfrak{p}\in \operatorname{Proj} T} \varphi^{-1}(\mathfrak{p}).$$
+	
+	Obviously,  $f(\operatorname{Proj} T) \subseteq V(\mathfrak{a})$.  For the inverse,  let $\mathfrak{q} \supseteq \mathfrak{a}$ and let $\mathfrak{q}^{\prime}$ be the inverse image of the minimal prime ideal containing $\varphi(\mathfrak{q})$.  It suffices to check that $\mathfrak{q}=\mathfrak{q}^{\prime}$.  Actually,  since the morphism is surjective,  the minimal prime ideal containing $\varphi(\mathfrak{q})$ is just $\varphi(\mathfrak{q})$,  which is a homogeneous ideal.  By definition, $\mathfrak{q}^{\prime} \supseteq \mathfrak{q}$.  If the inclusion is proper,  pick $x \in \mathfrak{q}^{\prime} \backslash \mathfrak{q}$,  there exists $y \in \mathfrak{q}$ such that $\varphi(x)=\varphi(y)$,  then $x-y \in \mathfrak{q}^{\prime} \backslash \mathfrak{q}$ and $\varphi(x-y)=0$,  so $x-y \in \mathfrak{a}$ which is a contradiction and thus $\mathfrak{q}^{\prime}=\mathfrak{q}$.
+	
+	(b) Let $I \subseteq S$ be a homogeneous ideal and let $T=S / I $. Let $Y$ be the closed subscheme of $X=\operatorname{Proj} S$ defined as the image of the closed immersion $\operatorname{Proj} S / I \rightarrow X $. There is a commutative diagram of graded rings where the maps are projections:
+	\begin{equation*}
+		\begin{tikzcd}
+			S \arrow[d] \arrow[r] & S / I^{\prime} \arrow[ld] \\
+			S / I                 &                          
+		\end{tikzcd}
+	\end{equation*}
+	This corresponds to a commutative diagrams of schemes:
+	\begin{equation*}
+		\begin{tikzcd}
+			\operatorname{Proj} S                     & \operatorname{Proj} S / I^{\prime} \arrow[l] \\
+			\operatorname{Proj} S / I \arrow[u] \arrow[ru] &                                             
+		\end{tikzcd}
+	\end{equation*}
+	The map $S / I^{\prime} \rightarrow S / I$ is an isomorphism for degree $d \geq d_{0}$, so by Ex. \ref{2.2.14}\,(c), the map $\mathrm{Proj}\,S / I \rightarrow \mathrm{Proj}\, S / I^{\prime}$ is an isomorphism. The commutative diagram shows that $I$ and $I^{\prime}$ determine the same closed subscheme.
+\end{proof}
+\begin{exe}[Properties of Morphisms of Finite Type]
+	\label{2.3.13}
+	\ 
+	
+	(a) A closed immersion is a morphism of finite type.
+	
+	(b) A quasi-compact open immersion (Ex. \ref{2.3.2}) is of finite type.
+	
+	(c) A composition of two morphisms of finite type is of finite type.
+	
+	(d) Morphisms of finite type are stable under base extension.
+	
+	(e) If $X$ and $Y$ are schemes of finite type over $S$, then $X \times_{s} Y$ is of finite type over $S$.
+	
+	(f) If $X \stackrel{f}{\rightarrow} Y \stackrel{g}{\rightarrow} Z$ are two morphisms, and if $f$ is quasi-compact, and $g \circ f$ is of finite type, then $f$ is of finite type.
+	
+	(g) If $f: X \rightarrow Y$ is a morphism of finite type, and if $Y$ is noetherian, then $X$ is noetherian.
+\end{exe}
+\begin{proof}
+	(a) The property follows immediately from Ex. \ref{2.3.11}(b).
+	
+	(b) Let $f:X\to Y$ be a quasi-compact open immersion. For any affine open subset $U=\mathrm{Spec}\,A$ of $Y$, there exists a finite subset $\{f_1,\dots,f_l\}\subseteq A$, such that $f^{-1}(U)=\bigcup_{i=1}^lD(f_i)$. Then $D(f_i)\simeq\mathrm{Spec}\,A_{f_i}$ is affine and $A_{f_i}\simeq A[T]/(f_iT-1)$ is a finitely generated $A$-algebra. Therefore $f$ is of finite type.
+	
+	(c) The property follows immediately from Ex. \ref{2.3.3}(b).
+	
+	(d) Let $f:X\to Y$ be a morphism of finite type and $g:Y^{\prime}\to Y$ a base extension. We want to show that $f^{\prime}:X^{\prime}=X\times_YY^{\prime}\to Y^{\prime}$ is still of finite type. Let $\{V_i\}_i$ be an affine open cover of $g(Y^{\prime})$ in $Y$, where $V_i=\mathrm{Spec}\,A_i$. Choose an affine open cover $\{U_{ij}\}_{i,j}$ of $Y^{\prime}$ such that $g(U_{ij})\subseteq V_i$, where $U_{ij}=\mathrm{Spec}\,R_{ij}$. Then by Lemma \ref{l12}, we have $f^{\prime-1}(U_{ij})=X\times_YU_{ij}\simeq f^{-1}(V_i)\times_{V_i}U_{ij}$. Since $f$ is of finite type, there exists a finite affine open cover $\{W_{ik}\}_k$ of each $f^{-1}(V_i)$ with $W_{ik}=\mathrm{Spec}\,B_{ik}$ where $B_{ik}$ are finitely generated $A_i$-algebras. Then $\{W_{ik}\times_{V_i}U_{ij}=\mathrm{Spec}(B_{ik}\otimes_{A_i}R_{ij})\}_k$ is a finite affine open cover of $f^{\prime-1}(U_{ij})$ and $B_{ik}\otimes_{A_i}R_{ij}$ is a finite generated $R_{ij}$-algebra. Therefore $f^{\prime}$ is of finite type.
+	
+	(e) Apply Lemma \ref{l12}.
+	
+	(f) Let $\{U_i\}_i$ be an affine open cover of $Z$ with $U_i=\mathrm{Spec}\,A_i$. Then we can choose an affine open cover $\{V_{ij}\}_{i,j}$ of $Y$ such that $V_{ij}\subseteq g^{-1}(U_i)$ with $V_{ij}=\mathrm{Spec}\,B_{ij}$. Since $f$ is quasi-compact, $f^{-1}(V_{ij})$ can be covered by a finite set of affine open subsets $\{W_{ijk}=\mathrm{Spec}\,R_{ijk}\}_k$. Since $f\circ g$ is of finite type, by Ex. \ref{2.3.3}(c), for each $k$, $R_{ijk}$ is a finitely generated $A_i$-algebra and hence a finitely generated $B_{ij}$-algebra. Therefore $f$  is of finite type.
+	
+	(g) Let $\{U_i\}_i$ be a finite affine open cover of $Y$ with $U_i=\mathrm{Spec}\,A_i$ such that $A_i$ are noetherian. By Ex. \ref{2.3.3}(b), there is a finite affine open cover $\{V_{ij}\}_j$ of $f^{-1}(U_i)$ with $V_{ij}=\mathrm{Spec}\,B_{ij}$ such that for each $j$  $B_{ij}$ is a finitely generated $A_i$-algebra and hence noetherian. Thus we get a finite affine open cover $\{V_{ij}=\mathrm{Spec}\,B_{ij}\}_{i,j}$ of $X$ with $B_{ij}$ noetherian. Therefore $X$ is noetherian.
+\end{proof}
+\begin{exe}
+	\label{2.3.14}
+	If $X$ is a scheme of finite type over a field, show that the closed points of $X$ are dense. Give an example to show that this is not true for arbitary schemes.
+\end{exe}
+\begin{proof}
+	(1) Let $\{U_i\}$ be a finite affine open cover of $X$,where $U_i=\mathrm{Spec}\,R_i$ with $R_i$ of finite type over a field $k$, and $S=\{
+	\text{closed points of }X\}$. If $S\cap U_i$, the closed points of $U_i$, is dense in $U_i$ for each $i$, then we have $\bar{S}\supseteq\overline{S\cap U_i}\supseteq U_i$, for each $i$, and hence $\bar{S}=X$.
+	
+	Therefore it suffices to prove for the case that $X=\mathrm{Spec}\,R$, where $R$ is a finitely generated $k$-algebra. If $V(I)$ is a closed subset of $X$ with $S\subseteq V(I)$,
+	then $I\subseteq\bigcap_{\mathfrak{m}}\mathfrak{m}=\mathrm{rad}(0)\subseteq\mathfrak{p}$ (see \cite[Ch. 1, Ex. 4, P. 11]{ATIY} for the first equality) for all prime ideals $\mathfrak{p}$ of $R$, where $\mathfrak{m}$ ranges over all maximal ideals of $R$. So $V(I)=X$, showing
+	that $S$ is dense in $X$.
+	
+	(2) For general cases, consider $X=\mathrm{Spec}\,k[x]_{(x)}$, which is a local ring. Then the only closed
+	point is $(x)$. Furthermore, we have $X=\{(0),\ (x)\}$. Clearly $\overline{\{x\}}=\{x\}\subsetneqq X$.
+\end{proof}
+\begin{rmk}
+	I think the $p$-adic integer ring $\mathbb{Z}_p$ and the formal power series ring $k[[x]]$ are better choices for the counter-example. Moreover, without the condition ``quasi-compact'' implied by the condition ``of finite type'', we can find a scheme without closed points (see \cite[Ch. 3, Ex. 3.27, P. 114]{LIU}).
+\end{rmk}
+\begin{exe}
+	\label{2.3.15}
+	Let $X$ be a scheme of finite type over a field $k$ (not necessarily algebraically closed).\\
+	(a) Show that the following three conditions are equivalent (in which case we say that $X$ is \emph{geometrically irreducible}).
+	
+	(i) $X \times_{k} \bar{k}$ is irreducible, where $\bar{k}$ denotes the algebraic closure of $k$. (By abuse of notation, we write $X\times_k\bar{k}$ to denote $X\times_{\mathrm{Spec}\,k}\mathrm{Spec}\,\bar{k}$.)
+	
+	(ii) $X \times_{k} k_{s}$ is irreducible, where $k_{s}$ denotes the separable closure of $k$.
+	
+	(iii) $X \times_{k} K$ is  irreducible for every extension field $K$ of $k$.\\
+	(b) Show that the following three conditions are equivalent (in which case we say $X$ is \emph{geometrically reduced}).
+	
+	(i) $X \times_{k} \bar{k}$ is reduced.
+	
+	(ii) $X \times_{k} k_{p}$ is reduced, where $k_{p}$ denotes the perfect closure of $k$.
+	
+	(iii) $X \times_{k} K$ is reduced for all extension fields $K$ of $k$.\\
+	(c) We say that $X$ is \emph{geometrically integral} if $X \times_{k} \bar{k}$ is integral. Give examples of integral schemes which are neither geometrically irreducible nor geometrically reduced.
+\end{exe}
+\begin{proof}
+	This proof is based on \cite[P. 89-91]{LIU}.
+	\begin{lm}
+		\label{l16}
+		Let $X$ be an algebraic variety over $k$, and let $K/k$ be an algebraic extension. Then for any reduced closed subvariety $W$ of $X_K=X\times_kK$, there exists a finite subextension $K^{\prime}$ of $K$ and a unique (for fixed $K^{\prime}$) reduced closed subvariety $Z$ of $X_{K^{\prime}}$ such that $W=Z_K$.
+	\end{lm}
+	\begin{proof}[Proof of Lemma \ref{l16}]
+		Let us first suppose that $X=\mathrm{Spec}\,A$. Then $W=V(I)$, where $I$ is a radical ideal of $A_K$, generated by $f_1,\dots,f_m$. There exists a finite subextension $K^{\prime}$ of $K$ such that $f_i\in A_{K^{\prime}}$ for every $i$. Let $I^{\prime}$ be the ideal of $A_{K^{\prime}}$ generated by the $f_i$, and $Z=\mathrm{Spec}\,A_{K^{\prime}}/I^{\prime}$. Then $I=I^{\prime}\otimes_{K^{\prime}}K$, and hence $Z_K=W$. We have $Z$ is reduced, because $\mathcal{O}_Z(Z)\hookrightarrow\mathcal{O}_Z(Z)\otimes_{K^{\prime}}K=\mathcal{O}_W(W)$. As the underlying space of $Z$ is fixed (it is the image of $W$ under the projection $X_K\to X_{K^{\prime}}$, see \cite[Ch. 3, Ex. 1.8, P.86]{LIU}), the uniqueness of the scheme structure on $Z$ results from Ex. \ref{2.2.3}. Let us note that if $(Z,K^{\prime})$ fulfills the requirements, then so does $(Z_L,L)$ for any finite subextension $L/K^{\prime}$ of $K/K^{\prime}$.
+		
+		In the general case, we cover $X$ with a finite number of affine open subvarieties $X_i$. There then exist a finite subextension $K^{\prime}/k$ of $K$ and reduced closed subvarieties $Z_i$ of $(X_i)_{K^{\prime}}$ such that $(Z_i)_K=W\cap(X_i)_K$. By the uniqueness in the affine case, the $Z_i$ glue to a reduced closed subvariety $Z$ of $X_{K^{\prime}}$. We indeed have $Z_K=W$, and the uniqueness of $Z$ comes from Ex. \ref{2.2.3}, as in the affine case.
+	\end{proof}
+	(a) It is clear that (iii)$\implies$(i).
+	\begin{lm}
+		\label{l17}
+		Let $X$ be an algebraic variety over $k$, and let $K/k$ be an algebraic extension. If $K/k$ is purely inseparable, then the projection $p:X_K\to X$ is a homeomorphism.
+	\end{lm}
+	\begin{proof}[Proof of Lemma \ref{l17}]
+		We may assume that $X=\mathrm{Spec}\,A$, without loss of generality. 
+		
+		Firstly suppose that $K$ is a simple extension of $k$. We then have $K=k[T]/(T^q-c)$, with $c\in k$ and $q$ is a power of $\mathrm{char}\,k$. Let $\mathfrak{p}$ be a prime ideal of $A$. Let $\mathfrak{q}$ be a prime ideal of $A_K=A\otimes_kK$ such that $\mathfrak{q}\cap A=\mathfrak{p}$ by Theorem \ref{t2}. Then $\mathfrak{p}A_K\subseteq\mathfrak{q}$. On the other hand, since $\alpha^q\in A\cap\mathfrak{q}=\mathfrak{p}$ for all $\alpha\in\mathfrak{q}$, we have $\mathfrak{q}\subseteq\mathrm{Rad}(\mathfrak{p}A_K)$. Hence $\mathfrak{q}=\mathrm{Rad}(\mathfrak{p}A_K)$ and $p$ is injective. Let us now show that $p$ is a closed map. Let $I$ be an ideal of $A_K$. Let $J=I\cap A$. Then $I^q\subseteq J$. This implies that $p(V(I))=V(J)$. As $X_K\to X$ is surjective (Theorem \ref{t2}), $p$ is a homeomorphism.
+		
+		Let us now take $K/k$ finite. The extension $K/k$ is made up of successive simple extensions, and therefore $X_K\to X$ is a homeomorphism by the simple case. The general case immediately follows from the finite case and Lemma \ref{l16}.
+	\end{proof}
+	(i)$\iff$(ii): This immediately follows from that the projection $X_{\bar{k}}\to X_{k_s}$ is a homeomorphism by Lemma \ref{l17}.
+	
+	(i)$\implies$(iii): Here we only consider the case that $K/k$ is algebraic. See \cite[\href{https://stacks.math.columbia.edu/tag/0364}{Tag 0364}, Lemma 33.8.8]{stacks-project} for the general case. This follows from that the projection $X_{\bar{k}}\to X_K$ is surjective.
+	
+	(b) It is clear that (iii)$\implies$(i).
+	\begin{lm}
+		\label{l18}
+		Let $X$ be an algebraic variety over $k$, and let $K/k$ be an algebraic extension. If $X$ is reduced and $K/k$ is separable, then $X_K$ is reduced.
+	\end{lm}
+	\begin{proof}[Proof of Lemma \ref{l18}]
+		We may assume that $X=\mathrm{Spec}\,A$, without loss of generality. Let $\mathfrak{p}_1,\dots,\mathfrak{p}_n$ be the mininal prime ideals of $A$. Then $A$ injects into $\bigoplus_iA/\mathfrak{p}_i$, and therefore $A_K$ injects into $\bigoplus_i(A/\mathfrak{p}_i)_K$. We can therefore assume $A$ to be integral. As $A_K$ is a subring of $\mathrm{Frac}(A)\otimes_kK$, it suffices to show that $F\otimes_kK$ is reduced for any field $F$ containing $k$. Every element of $F\otimes_kK$ is contained in $F\otimes_kK^{\prime}$, with $K^{\prime}$ finite separable over $k$, and we can therefore assume $K$ to be finite over $k$. It follows that $K=k[T]/(P(T))$, where $P(T)\in k[T]$ is a separable polynomial. As $P(T)$ is still separable in $F[T]$, $F\otimes_kK\simeq F[T]/(P(T))$ is reduced.
+	\end{proof}
+	The part (i)$\iff$(ii) immediately follows from Lemma \ref{l18}.
+	
+	(i)$\implies$(iii): Here we only consider the case that $K/k$ is algebraic. See \cite[\href{https://stacks.math.columbia.edu/tag/035U}{Tag 035U}, Lemma 33.6.4]{stacks-project} for the general case. The algebraic case follows from Lemma \ref{l16}.
+	
+	(c) Let $k=\mathbb{F}_{p}(T)$ and $K=\mathbb{F}_{p}\left(T^{1 / p}\right)$. Then $\mathrm{Spec}\,K$ is reduced but not geometrically reduced as Spec $K \times_{k}$ $\operatorname{Spec} K=\operatorname{Spec}\left(K \otimes_{k} K\right)$ and $K \otimes_{k} K$ has the nonzero nilpotent $x=1 \otimes T^{1 / p}-T^{1 / p} \otimes 1$ with $x^{p}=0$. Similarly, $X=\operatorname{Spec} \mathbb{R}[x] /\left(x^{2}+1\right) \simeq \operatorname{Spec} \mathbb{C}$ is irreducible (it is a single point) but not geometrically irreducible as $X_{\mathbb{C}}=\operatorname{Spec} \mathbb{C}[x] /\left(x^{2}+1\right)=\operatorname{Spec}(\mathbb{C} \oplus \mathbb{C})=\operatorname{Spec} \mathbb{C}\sqcup\mathrm{Spec}\,\mathbb{C}$.
+\end{proof}
