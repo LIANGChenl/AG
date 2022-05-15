@@ -1,0 +1,17 @@
+\bib{EGA1}{book}{
+	title={El\'ements de G\'eom\'etrie Alg\'ebrique \uppercase\expandafter{\romannumeral1}},
+	author={Grothendieck, A.},
+	author={Dieudonn\'e, J.}
+	publisher={Springer-Verlag},
+	year={1971},
+	address={Heidelberg}
+}
+\bib{EGA2}{book}{
+	title={El\'ements de G\'eom\'etrie Alg\'ebrique \uppercase\expandafter{\romannumeral2}},
+	author={Grothendieck, A.},
+	author={Dieudonn\'e, J.}
+	publisher={},
+	series={Publ. Math. IH\'ES},
+	year={1961},
+	volume={8}
+}
