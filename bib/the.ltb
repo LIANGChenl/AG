@@ -31,6 +31,14 @@
 	series={Oxford Graduate Texts in Math.},
 	volume={6}
 }
+\bib{MAT}{book}{
+    title={Commutative Ring Theory},
+    author={Matsumura, H.},
+    series={Cambridge Studies in Advanced Mathematics},
+    volume={8},
+    year={1989},
+    publisher={Cambridge University Press},
+}
 \bib{BAG}{book}{
 	title={Basic Algebraic Geometry 2: Schemes and Complex Manifolds},
 	author={Shafarevich, I. R.},
